@@ -17,22 +17,8 @@ export function createTick(tickId: string, tickIdx: i32, poolId: string, event: 
   tick.liquidityNet = ZERO_BI
   tick.liquidityProviderCount = ZERO_BI
 
-  tick.price0 = ONE_BD
-  tick.price1 = ONE_BD
 
-  // 1.0001^tick is token1/token0.
-  let price0 = bigDecimalExponated(BigDecimal.fromString('1.0001'), BigInt.fromI32(tickIdx))
-  tick.price0 = price0
-  tick.price1 = safeDiv(ONE_BD, price0)
 
-  tick.volumeToken0 = ZERO_BD
-  tick.volumeToken1 = ZERO_BD
-  tick.volumeUSD = ZERO_BD
-  tick.feesUSD = ZERO_BD
-  tick.untrackedVolumeUSD = ZERO_BD
-  tick.collectedFeesToken0 = ZERO_BD
-  tick.collectedFeesToken1 = ZERO_BD
-  tick.collectedFeesUSD = ZERO_BD
   tick.liquidityProviderCount = ZERO_BI
   tick.feeGrowthOutside0X128 = ZERO_BI
   tick.feeGrowthOutside1X128 = ZERO_BI
